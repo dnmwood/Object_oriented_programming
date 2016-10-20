@@ -7,17 +7,27 @@ class Cat
   end
 
 
-  def eats
-    @meal_time
-  end
-
-  def name
-    "#{ @name }"
+  def eats_at
+    if @meal_time < 12
+      clock = "#{@meal_time} AM"
+    elsif @meal_time == 12
+      clock = "#{@meal_time} PM"
+    else
+      clock = "#{@meal_time - 12} PM"
+    end
+    clock
   end
 end
 
-fred = Cat.new("Fred", "tuna", 16)
-billy = Cat.new("Billy", "chicken", 12)
+#   def name
+#     "#{ @name }"
+#   end
+# end
 
-puts fred.eats
-puts billy.eats
+fred = Cat.new("Fred", "tuna", 16)
+billy = Cat.new("Billy", "chicken", 8)
+
+puts "Fred eats at:"
+puts fred.eats_at
+puts "Billy eats at:"
+puts billy.eats_at
